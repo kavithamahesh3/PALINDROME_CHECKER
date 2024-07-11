@@ -1,0 +1,133 @@
+** start of undefined **
+
+<!DOCTYPE html>
+<html lang ="en">
+  <head>
+    <title>Palnindrome Checker</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="container">
+      <div class="title-div">
+        <h1>Is it a Palindrome?</h1>
+      </div>
+      <div class="word-form">
+        <label for="text-input">Enter a word to check if its a palindrome:</label>
+        <hr/>
+        <input id="text-input" type="text" />
+        <button type="submit" id="check-btn">Check</button>
+        <p id="result"></p>
+      </div>
+      <div class="hint-label">
+        <img src="https://img.icons8.com/?size=100&id=30146&format=png&color=000000" id="hint-icon">
+        <p>A palindrome is a word or sentence that's spelled the same way both forward and backward, ignoring punctuation, case, and spacing.</p>
+      </div>
+    </main>
+  <script src="script.js"></script>
+  </body>
+</html>
+
+
+** end of undefined **
+
+** start of undefined **
+
+*,
+*::before,
+*::after {
+  
+  box-sizing: border-box;
+}
+
+:root {
+  --dark-grey: #0a0a23;
+  --white: #ffffff;
+  --yellow: #f1be32;
+}
+
+body {
+  color: var(--white);
+  background-color: var(--dark-grey);
+}
+.container{
+  margin: auto;
+  margin-top: 200px;
+  text-align:center;
+  width: 350px;
+  padding: 10px;
+}
+.word-form{
+  width: 100%;
+  background-color:var(--white);;
+  color: var(--dark-grey);
+  padding:15px;
+  display:block;
+  border-radius: 15px;
+}
+hr{
+  border: none;
+}
+#text-input{
+  border: none;
+  border-bottom: 2px solid #800080;
+}
+#check-btn{
+  padding: 2px;
+  width:80px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: #800080;
+  color: var(--white);
+  cursor: pointer;
+  border:none;
+}
+.hint-label{
+  padding: 10px;
+  text-align:left;
+  margin-top: 20px;
+  width:100%;
+  background-color: #0b6623;
+  border-radius: 20px;
+  display:flex;
+}
+#hint-icon{
+  width: 25px;
+  height: 25px;
+  margin-top:10px;
+}
+.bold-text{
+  
+  font-weight: 200px;
+}
+
+** end of undefined **
+
+** start of undefined **
+
+const checkWord = document.getElementById("text-input");
+const checkButton = document.getElementById("check-btn");
+const output = document.getElementById("result");
+
+const cleanWord = (str) => {
+  return str.replace(/[^A-Za-z0-9]/gi, '').toLowerCase();
+};
+
+const checkPalindrome = () => {
+  if(checkWord.value == "")
+  {
+    alert("Please input a value");
+  }
+  const word = cleanWord(checkWord.value);
+   
+output.innerText = word === word.split("").reverse().join("") ?
+  `${checkWord.value} is a palindrome` : `${checkWord.value} is not a palindrome`;
+};
+
+checkButton.addEventListener("click", checkPalindrome);
+
+
+** end of undefined **
+
